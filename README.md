@@ -1,16 +1,26 @@
-# React + Vite
+# BNS Development — Website (White Theme)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Live version matching `http://localhost:1212/#home`.
 
-Currently, two official plugins are available:
+## Features
+- **Cinematic Full-Bleed Hero Background Video**: High-definition WebM background video (`/videos/hero-bg-video.webm`) with auto-play, infinite looping, smooth overlay and layered contrast.
+- **Edge-to-Edge 3D Curved Sectors Visibility Carousel**: 360-degree cylindrical continuous perspective arc with zero side margins/fades and minimal vertical spacing.
+- **Architectural White Theme**: Clean, refined aesthetic with Playfair Display and Albert Sans typography.
+- **Performance Optimized**: Built with React 19, Vite, Framer Motion, and Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Getting Started
 
-## React Compiler
+### Install Dependencies
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Run Locally
+```bash
+npm run dev -- --port 1212
+```
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Production Build
+```bash
+npm run build
+```
