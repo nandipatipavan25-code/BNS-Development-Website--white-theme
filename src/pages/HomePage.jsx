@@ -343,9 +343,15 @@ function ScrollServiceCard({ service, index }) {
 }
 
 // =========================================================================
-// SUB-COMPONENT: TYPEWRITER HEADLINE
+// SUB-COMPONENT: TYPEWRITER HEADLINE (Two Lines)
 // =========================================================================
-function TypewriterHeadline({ text, className, style }) {
+function TypewriterHeadline({
+  line1 = "Built on Experience.",
+  line2 = "Driven by Partnership.",
+  className,
+  style,
+}) {
+  const totalLength = line1.length + line2.length;
   const [displayedCount, setDisplayedCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
@@ -355,30 +361,48 @@ function TypewriterHeadline({ text, className, style }) {
       const interval = setInterval(() => {
         index += 1;
         setDisplayedCount(index);
-        if (index >= text.length) {
+        if (index >= totalLength) {
           clearInterval(interval);
           setIsComplete(true);
         }
-      }, 45);
+      }, 40);
       return () => clearInterval(interval);
     }, 200);
 
     return () => clearTimeout(startDelay);
-  }, [text]);
+  }, [totalLength]);
+
+  const count1 = Math.min(displayedCount, line1.length);
+  const count2 = Math.max(0, displayedCount - line1.length);
 
   return (
     <h1
       className={className}
-      style={{ lineHeight: '46px', ...style }}
-      aria-label={text}
+      style={style}
+      aria-label={`${line1} ${line2}`}
     >
-      <span>{text.slice(0, displayedCount)}</span>
-      <span
-        className={`inline-block w-[3px] h-[0.8em] bg-[#ED1C24] ml-1 align-baseline transition-opacity duration-300 ${
-          isComplete ? 'opacity-0' : 'animate-pulse opacity-90'
-        }`}
-        aria-hidden="true"
-      />
+      <span className="block">
+        {line1.slice(0, count1)}
+        {displayedCount <= line1.length && (
+          <span
+            className={`inline-block w-[3px] h-[0.8em] bg-[#ED1C24] ml-1 align-baseline transition-opacity duration-300 ${
+              isComplete ? 'opacity-0' : 'animate-pulse opacity-90'
+            }`}
+            aria-hidden="true"
+          />
+        )}
+      </span>
+      <span className="block text-white/95 mt-1 sm:mt-2">
+        {line2.slice(0, count2)}
+        {displayedCount > line1.length && (
+          <span
+            className={`inline-block w-[3px] h-[0.8em] bg-[#ED1C24] ml-1 align-baseline transition-opacity duration-300 ${
+              isComplete ? 'opacity-0' : 'animate-pulse opacity-90'
+            }`}
+            aria-hidden="true"
+          />
+        )}
+      </span>
     </h1>
   );
 }
@@ -464,9 +488,9 @@ export default function HomePage() {
             </motion.div>
 
             <TypewriterHeadline
-              text="Built on Experience. Driven by Partnership."
-              className="text-3xl sm:text-4xl md:text-[48px] lg:text-[48px] font-display font-semibold text-white/90 tracking-tight !leading-[46px] min-h-[96px] md:min-h-[96px]"
-              style={{ lineHeight: '46px' }}
+              line1="Built on Experience."
+              line2="Driven by Partnership."
+              className="text-3xl sm:text-4xl md:text-[46px] lg:text-[48px] font-display font-semibold text-white/95 tracking-tight leading-[1.18] sm:leading-[1.18] md:leading-[54px] min-h-[96px] sm:min-h-[110px] md:min-h-[124px]"
             />
 
             <motion.div
