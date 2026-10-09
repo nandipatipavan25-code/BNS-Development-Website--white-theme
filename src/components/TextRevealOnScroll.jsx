@@ -18,35 +18,37 @@ function toSpringOptions(transition) {
   }
 
   return {
-    stiffness: typeof transition?.stiffness === 'number' ? transition.stiffness : 100,
-    damping: typeof transition?.damping === 'number' ? transition.damping : 30,
-    mass: typeof transition?.mass === 'number' ? transition.mass : 1,
+    stiffness: typeof transition?.stiffness === 'number' ? transition.stiffness : 130,
+    damping: typeof transition?.damping === 'number' ? transition.damping : 24,
+    mass: typeof transition?.mass === 'number' ? transition.mass : 0.8,
     restDelta: 0.001,
   };
 }
 
 const RevealItem = ({ children, progress, range, mutedColor, primaryColor }) => {
   const color = useTransform(progress, range, [mutedColor, primaryColor]);
-  const opacity = useTransform(progress, range, [0.35, 1]);
+  const opacity = useTransform(progress, range, [0.25, 1]);
+  const y = useTransform(progress, range, [3, 0]);
 
   return (
-    <motion.span style={{ color, opacity }} className="inline-block transition-colors">
+    <motion.span style={{ color, opacity, y }} className="inline-block will-change-transform">
       {children}
     </motion.span>
   );
 };
 
 export default function TextRevealOnScroll({
-  text = "Building the future of commercial and residential development with precision, clarity, and accountability.",
-  mutedColor = "rgba(24, 24, 24, 0.22)",
-  primaryColor = "#181818",
-  mode = "word", // "word" | "character" | "sentence"
-  replay = true,
+  text = '',
+  mutedColor = 'rgba(0, 0, 0, 0.20)',
+  primaryColor = 'rgba(0, 0, 0, 0.85)',
+  mode = 'word', // 'word' | 'character' | 'sentence'
+  replay = false,
   balance = true,
-  className = "",
+  className = '',
   style = {},
-  transition = { duration: 0.4 },
-  offset = ["start 85%", "end 45%"],
+  as: Component = 'p',
+  transition = { duration: 0.35 },
+  offset = ['start 92%', 'start 62%'],
 }) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -57,7 +59,7 @@ export default function TextRevealOnScroll({
 
   const maxProgress = useMotionValue(0);
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+  useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (latest > maxProgress.get()) {
       maxProgress.set(latest);
     }
@@ -70,11 +72,11 @@ export default function TextRevealOnScroll({
     if (!text) return null;
 
     let items = [];
-    if (mode === "character") {
-      items = text.split("");
-    } else if (mode === "word") {
+    if (mode === 'character') {
+      items = text.split('');
+    } else if (mode === 'word') {
       items = text.match(/([\S]+|\s+)/g) || [];
-    } else if (mode === "sentence") {
+    } else if (mode === 'sentence') {
       items = text.match(/[^.!?\n]+(?:[.!?]+)?|\n|\s+/g) || [];
     }
 
@@ -86,10 +88,10 @@ export default function TextRevealOnScroll({
     let currentIdx = 0;
 
     return items.map((itemStr, idx) => {
-      if (itemStr.trim().length === 0 && itemStr !== "\n") {
+      if (itemStr.trim().length === 0 && itemStr !== '\n') {
         return <React.Fragment key={`${mode}-space-${idx}`}>{itemStr}</React.Fragment>;
       }
-      if (itemStr === "\n") {
+      if (itemStr === '\n') {
         return <br key={`${mode}-br-${idx}`} />;
       }
 
@@ -112,18 +114,18 @@ export default function TextRevealOnScroll({
   };
 
   return (
-    <div
+    <Component
       ref={containerRef}
       role="region"
       aria-label={text}
       style={{
-        textWrap: balance ? "balance" : "wrap",
-        whiteSpace: "pre-wrap",
+        textWrap: balance ? 'balance' : 'wrap',
+        whiteSpace: 'pre-wrap',
         ...style,
       }}
-      className={`${className}`}
+      className={className}
     >
       <span aria-hidden="true">{renderText()}</span>
-    </div>
+    </Component>
   );
 }

@@ -65,23 +65,22 @@ export default function CareerDetailPage({
     }
   };
 
-  const relatedJobs = jobsData.filter((j) => j.id !== activeJob.id).slice(0, 3);
-
   return (
-    <div className="relative pb-24 text-black/90 bg-[#FAFAF8] min-h-screen">
-      {/* ========================================================
-          1. HERO: Full-Bleed Architectural Career Banner
-          ======================================================== */}
-      <section className="relative w-full overflow-hidden min-h-[420px] sm:min-h-[480px] flex flex-col justify-end pt-32 sm:pt-40 pb-14 sm:pb-18 border-b border-[#E6E6E3] bg-[#181818] mb-12 sm:mb-16">
-        <img
-          src="/images/careers-hero.jpg"
-          alt={activeJob.title}
-          className="absolute inset-0 w-full h-full object-cover select-none brightness-95"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent" />
+    <div className="relative pb-12 sm:pb-16 text-black/90 bg-transparent min-h-screen font-sans selection:bg-[#ED1C24] selection:text-white">
+      {/* Subtle Architectural Dot Grid Background */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none select-none"
+        style={{
+          backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+        aria-hidden="true"
+      />
 
+      {/* ========================================================
+          1. HERO: Pristine Light Architectural Banner
+          ======================================================== */}
+      <section className="relative w-full pt-28 sm:pt-36 pb-10 sm:pb-14 bg-transparent border-b border-black/[0.08] mb-8 sm:mb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-6">
           {/* Breadcrumb Navigation & Share Button */}
           <div className="flex items-center justify-between">
@@ -91,55 +90,55 @@ export default function CareerDetailPage({
                 setActivePage('careers');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-sans font-medium text-white transition-colors shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#F6F6F6] hover:bg-white text-black/85 border border-black/[0.08] hover:border-[#ED1C24] hover:text-[#ED1C24] text-xs sm:text-sm font-sans font-medium transition-colors shadow-sm cursor-pointer"
             >
-              <ArrowLeft className="w-4 h-4 text-white" />
+              <ArrowLeft className="w-4 h-4 text-[#ED1C24]" />
               <span>Back to Open Positions</span>
             </button>
 
             <button
               type="button"
               onClick={handleShare}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 text-xs font-sans text-white transition-colors shadow-sm cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#F6F6F6] hover:bg-white text-black/85 border border-black/[0.08] hover:border-[#ED1C24] text-xs font-sans transition-colors shadow-sm cursor-pointer"
             >
-              {copied ? <Check className="w-3.5 h-3.5 text-[#C41E1E]" /> : <Share2 className="w-3.5 h-3.5" />}
+              {copied ? <Check className="w-3.5 h-3.5 text-[#ED1C24]" /> : <Share2 className="w-3.5 h-3.5 text-black/50" />}
               <span>{copied ? 'Link Copied' : 'Share Role'}</span>
             </button>
           </div>
 
-          <div className="space-y-4 max-w-4xl text-white">
+          <div className="space-y-4 max-w-4xl text-black/90">
             <div className="flex flex-wrap items-center gap-2.5 text-xs font-sans">
-              <span className="px-3 py-1 rounded-full bg-[#C41E1E] text-white font-semibold text-xs">
+              <span className="px-3 py-1 rounded-full bg-[#ED1C24] text-white font-semibold text-xs">
                 {activeJob.department}
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-white">
-                <MapPin className="w-3.5 h-3.5 text-[#C41E1E]" />
+              <span className="inline-flex items-center gap-1 bg-[#F6F6F6] px-3 py-1 rounded-full border border-black/[0.08] text-black/75">
+                <MapPin className="w-3.5 h-3.5 text-[#ED1C24]" />
                 {activeJob.location}
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-white">
-                <Clock className="w-3.5 h-3.5 text-neutral-300" />
+              <span className="inline-flex items-center gap-1 bg-[#F6F6F6] px-3 py-1 rounded-full border border-black/[0.08] text-black/75">
+                <Clock className="w-3.5 h-3.5 text-black/40" />
                 {activeJob.type}
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-white">
+              <span className="inline-flex items-center gap-1 bg-[#F6F6F6] px-3 py-1 rounded-full border border-black/[0.08] text-black/75">
                 {activeJob.experience}
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-[40px] font-display font-semibold text-white tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-[28px] md:text-[28px] font-display font-semibold text-black/95 tracking-tight leading-tight">
               {activeJob.title}
             </h1>
 
-            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono text-neutral-300">
-              <span className="w-2 h-2 rounded-full bg-[#C41E1E]" />
+            <div className="pt-2 flex flex-wrap items-center gap-3 text-xs font-mono text-black/60">
+              <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
               <span>Compensation: {activeJob.salary}</span>
-              <span className="text-neutral-500">•</span>
-              <span>Florida &amp; Texas Regional Operations</span>
+              <span className="text-black/30">•</span>
+              <span>Regional Operations</span>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
 
         {/* ========================================================
             2. SPLIT SPECIFICATIONS & DIRECT APPLICATION
@@ -151,7 +150,7 @@ export default function CareerDetailPage({
             {/* Position Overview */}
             <div className="p-7 rounded-2xl bg-white border border-[#E6E6E3] shadow-sm space-y-3">
               <div className="flex items-center gap-2">
-                <span className="w-4 h-[2px] bg-[#C41E1E]" />
+                <span className="w-4 h-[2px] bg-[#ED1C24]" />
                 <span className="text-xs uppercase tracking-wider text-black/45 font-semibold font-mono">
                   Role Overview
                 </span>
@@ -165,7 +164,7 @@ export default function CareerDetailPage({
             {activeJob.responsibilities && (
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="w-4 h-[2px] bg-[#C41E1E]" />
+                  <span className="w-4 h-[2px] bg-[#ED1C24]" />
                   <span className="text-xs uppercase tracking-wider text-black/45 font-semibold font-mono">
                     Key Responsibilities
                   </span>
@@ -173,7 +172,7 @@ export default function CareerDetailPage({
                 <div className="space-y-3">
                   {activeJob.responsibilities.map((resp, idx) => (
                     <div key={idx} className="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-[#E6E6E3] shadow-sm">
-                      <CheckCircle2 className="w-5 h-5 text-[#C41E1E] shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#ED1C24] shrink-0 mt-0.5" />
                       <span className="text-xs sm:text-sm text-black/85 font-sans leading-relaxed">
                         {resp}
                       </span>
@@ -187,7 +186,7 @@ export default function CareerDetailPage({
             {activeJob.requirements && (
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <span className="w-4 h-[2px] bg-[#C41E1E]" />
+                  <span className="w-4 h-[2px] bg-[#ED1C24]" />
                   <span className="text-xs uppercase tracking-wider text-black/45 font-semibold font-mono">
                     Qualifications &amp; Requirements
                   </span>
@@ -195,7 +194,7 @@ export default function CareerDetailPage({
                 <div className="space-y-3">
                   {activeJob.requirements.map((req, idx) => (
                     <div key={idx} className="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-[#E6E6E3] shadow-sm">
-                      <div className="w-2 h-2 rounded-full bg-[#C41E1E] shrink-0 mt-1.5" />
+                      <div className="w-2 h-2 rounded-full bg-[#ED1C24] shrink-0 mt-1.5" />
                       <span className="text-xs sm:text-sm text-black/85 font-sans leading-relaxed">
                         {req}
                       </span>
@@ -208,7 +207,7 @@ export default function CareerDetailPage({
             {/* Compensation, Benefits & Growth */}
             <div className="p-7 rounded-2xl bg-white border border-[#E6E6E3] shadow-sm space-y-4">
               <div className="flex items-center gap-2">
-                <span className="w-4 h-[2px] bg-[#C41E1E]" />
+                <span className="w-4 h-[2px] bg-[#ED1C24]" />
                 <span className="text-xs uppercase tracking-wider text-black/45 font-semibold font-mono">
                   What BNS Development Offers
                 </span>
@@ -257,7 +256,7 @@ export default function CareerDetailPage({
           <div className="lg:col-span-5 sticky top-28">
             <div className="p-7 sm:p-8 rounded-2xl bg-white border border-[#E6E6E3] shadow-xl space-y-5">
               <div className="pb-3 border-b border-[#E6E6E3]">
-                <span className="text-[11px] uppercase tracking-wider text-[#C41E1E] font-semibold font-mono block">
+                <span className="text-[11px] uppercase tracking-wider text-[#ED1C24] font-semibold font-mono block">
                   Direct Application
                 </span>
                 <h3 className="text-xl font-display font-semibold text-black/85 mt-0.5">
@@ -270,7 +269,7 @@ export default function CareerDetailPage({
 
               {submitted ? (
                 <div className="py-10 text-center space-y-3">
-                  <div className="w-14 h-14 rounded-full bg-[#C41E1E]/10 text-[#C41E1E] border border-[#C41E1E] flex items-center justify-center mx-auto">
+                  <div className="w-14 h-14 rounded-2xl bg-[#ED1C24]/[0.06] text-[#ED1C24] border border-[#ED1C24]/20 flex items-center justify-center mx-auto">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
                   <h4 className="text-xl font-semibold font-display text-black/85">
@@ -292,7 +291,7 @@ export default function CareerDetailPage({
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       placeholder="e.g. Alex Morgan"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#C41E1E] transition-colors font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#ED1C24] transition-colors font-sans"
                     />
                   </div>
 
@@ -306,7 +305,7 @@ export default function CareerDetailPage({
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="you@domain.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#C41E1E] transition-colors font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#ED1C24] transition-colors font-sans"
                     />
                   </div>
 
@@ -320,7 +319,7 @@ export default function CareerDetailPage({
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="(512) 000-0000"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#C41E1E] transition-colors font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#ED1C24] transition-colors font-sans"
                     />
                   </div>
 
@@ -334,7 +333,7 @@ export default function CareerDetailPage({
                       value={formData.yearsExp}
                       onChange={(e) => setFormData({ ...formData, yearsExp: e.target.value })}
                       placeholder="e.g. 8+ Years"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#C41E1E] transition-colors font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#ED1C24] transition-colors font-sans"
                     />
                   </div>
 
@@ -347,7 +346,7 @@ export default function CareerDetailPage({
                       value={formData.portfolio}
                       onChange={(e) => setFormData({ ...formData, portfolio: e.target.value })}
                       placeholder="https://linkedin.com/in/..."
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#C41E1E] transition-colors font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#ED1C24] transition-colors font-sans"
                     />
                   </div>
 
@@ -360,14 +359,14 @@ export default function CareerDetailPage({
                       value={formData.coverNote}
                       onChange={(e) => setFormData({ ...formData, coverNote: e.target.value })}
                       placeholder="Share a brief summary of your recent building experience..."
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#C41E1E] transition-colors resize-none font-sans"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#FAFAF8] border border-[#E6E6E3] text-black/90 placeholder-black/40 text-xs focus:outline-none focus:border-[#ED1C24] transition-colors resize-none font-sans"
                     />
                   </div>
 
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-full bg-[#181818] hover:bg-[#C41E1E] text-white text-xs font-sans font-semibold tracking-wider transition-colors shadow-md cursor-pointer"
+                      className="w-full py-3.5 rounded-full bg-[#181818] hover:bg-[#ED1C24] text-white text-xs font-sans font-semibold tracking-wider transition-colors shadow-md cursor-pointer"
                     >
                       Submit Application
                     </button>
@@ -377,71 +376,6 @@ export default function CareerDetailPage({
             </div>
           </div>
         </div>
-
-        {/* ========================================================
-            3. OTHER ACTIVE OPPORTUNITIES
-            ======================================================== */}
-        <section className="pt-8 border-t border-[#E6E6E3] space-y-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[#C41E1E] font-semibold">
-                Explore More
-              </span>
-              <h3 className="text-xl sm:text-2xl font-display font-semibold text-black/90">
-                Other Active Opportunities
-              </h3>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                setActivePage('careers');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="inline-flex items-center gap-1.5 text-xs font-sans font-semibold text-[#C41E1E] hover:underline"
-            >
-              <span>View All ({jobsData.length})</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {relatedJobs.map((rJob) => (
-              <div
-                key={rJob.id}
-                onClick={() => {
-                  if (setSelectedJob) setSelectedJob(rJob);
-                  setActivePage('career-detail', `id=${rJob.id}`);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="p-5 rounded-2xl bg-white border border-[#E6E6E3] hover:border-[#C41E1E] shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col justify-between group"
-              >
-                <div className="space-y-2">
-                  <span className="text-[10px] font-mono text-[#C41E1E] font-semibold uppercase">
-                    {rJob.department}
-                  </span>
-                  <h4 className="text-base font-display font-semibold text-black/85 group-hover:text-[#C41E1E] transition-colors leading-snug">
-                    {rJob.title}
-                  </h4>
-                  <div className="flex items-center gap-2 text-xs text-black/50 font-sans">
-                    <MapPin className="w-3 h-3 text-[#C41E1E]" />
-                    <span>{rJob.location}</span>
-                  </div>
-                </div>
-
-                <div className="pt-4 mt-3 border-t border-[#F0F0EC] flex items-center justify-between">
-                  <span className="text-xs font-mono font-semibold text-black/85">
-                    {rJob.salary.split('–')[0] || rJob.salary}
-                  </span>
-                  <div className="inline-flex items-center gap-1 text-xs font-mono text-[#C41E1E] group-hover:translate-x-0.5 transition-transform">
-                    <span>Specs</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
       </div>
     </div>
   );

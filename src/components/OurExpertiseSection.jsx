@@ -15,8 +15,15 @@ export default function OurExpertiseSection({
 }) {
   const handleNavigateToService = (svc) => {
     if (setSelectedService) setSelectedService(svc);
-    const target = svc.id === 'predevelopment' ? 'predevelopment' : svc.id;
-    setActivePage(target);
+    const targetMap = {
+      predevelopment: 'preconstruction',
+      'design-build': 'design-build',
+      residential: 'residential',
+      'tenant-improvements': 'tenant-improvements',
+      'ground-up': 'ground-up',
+    };
+    const target = targetMap[svc.id] || svc.id;
+    if (setActivePage) setActivePage(target);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

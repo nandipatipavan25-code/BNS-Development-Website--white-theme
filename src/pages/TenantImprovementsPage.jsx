@@ -2,282 +2,385 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
   Compass, Sparkles, Building2, Users, HardHat, CheckCircle2,
-  Layers, Wrench, ShieldCheck, ClipboardList, Target, ShoppingBag, Utensils
+  Layers, Wrench, ShieldCheck, ClipboardList, Target, ShoppingBag, Eye
 } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
 import ScrollReveal from '../components/ScrollReveal';
-import ServiceBreadcrumb from '../components/ServiceBreadcrumb';
+import TextRevealOnScroll from '../components/TextRevealOnScroll';
 import HouseCTA from '../components/HouseCTA';
+import ApproachEditorialList from '../components/ApproachEditorialList';
 
 export default function TenantImprovementsPage({ setActivePage }) {
   useEffect(() => {
     document.title = "BNS Development | Tenant Improvement Services";
   }, []);
 
-  const tenantServices = [
-    {
-      title: 'Space Planning Coordination',
-      desc: 'We help coordinate project requirements and work with the relevant project professionals to establish the scope of improvements.',
-      icon: Compass,
-    },
-    {
-      title: 'Interior Improvements',
-      desc: 'We coordinate development and fit-out work required to transform the interior environment according to the project\'s requirements.',
-      icon: Sparkles,
-    },
-    {
-      title: 'Build-Outs',
-      desc: 'From preparing an existing space for a new tenant to completing a commercial build-out, we help coordinate the delivery and fit-out process.',
-      icon: Building2,
-    },
-    {
-      title: 'Project Coordination',
-      desc: 'We help keep owners, tenants, designers, contractors and subcontractors aligned throughout the project.',
-      icon: Users,
-    },
-    {
-      title: 'Development Management',
-      desc: 'Our team provides hands-on oversight throughout the execution and delivery phase to help keep the project moving.',
-      icon: HardHat,
-    },
-  ];
-
-  const pictorialWhyChoose = [
+  // Methodology – Tenant Improvement Pipeline (5 Sequential Lifecycle Stages)
+  const approachSteps = [
     {
       step: '01',
-      title: 'Clear project coordination',
-      image: '/images/projects/executive-office-workspace.png',
+      title: 'Space Planning & Shell Assessment',
+      desc: 'We analyze existing base-building MEP utilities, lease terms, and physical shell dimensions to validate test-fit space plans before capital commitment.',
+      image: '/images/approach/tenant-01-planning.jpg',
+      icon: Eye,
     },
     {
       step: '02',
-      title: 'Practical development planning',
-      image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80',
+      title: 'Office Transformations & Workplace Strategy',
+      desc: 'We coordinate interior architects, acoustic consultants, and technology engineers to deliver high-performance executive suites and agile collaborative workspaces.',
+      image: '/images/approach/tenant-01-office.jpg',
+      icon: Building2,
     },
     {
       step: '03',
-      title: 'Communication between stakeholders',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80',
+      title: 'Retail Build-Outs & Brand Environments',
+      desc: 'Precision trade coordination for customer-facing retail showrooms, specialty lighting arrays, luxury terrazzo floors, and bespoke architectural millwork.',
+      image: '/images/approach/tenant-02-retail.jpg',
+      icon: ShoppingBag,
     },
     {
       step: '04',
-      title: 'Schedule awareness',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1000&q=80',
+      title: 'Active Fit-Out & MEP Coordination',
+      desc: 'Hands-on field superintendents manage light-gauge metal stud framing, complex duct routing, electrical rough-ins, and drywall finishing under tight building rules.',
+      image: '/images/approach/tenant-03-renovation.jpg',
+      icon: HardHat,
     },
     {
       step: '05',
-      title: 'Experienced project oversight',
-      image: '/images/ground-up.jpg',
+      title: 'Commissioning & Turnkey Handover',
+      desc: 'We complete rigorous life-safety testing, air balance certification, municipal inspections, and white-glove punch-list closeout for immediate operational occupancy.',
+      image: '/images/approach/tenant-04-turnkey.jpg',
+      icon: Target,
+    },
+  ];
+
+  // 6 Pictorial Benefits Cards
+  const pictorialBenefits = [
+    {
+      step: '01',
+      title: 'Executive Office & Workspace Design',
+      image: '/images/projects/executive-office-workspace.png',
+      alt: 'Executive corporate office tenant improvement',
+    },
+    {
+      step: '02',
+      title: 'Retail & Commercial Fit-Out Planning',
+      image: '/images/projects/modern-retail-showroom.png',
+      alt: 'Modern commercial retail showroom fit-out',
+    },
+    {
+      step: '03',
+      title: 'Interior Architecture Coordination',
+      image: '/images/process/step-04-details.jpg',
+      alt: 'Interior architectural detailing and specs',
+    },
+    {
+      step: '04',
+      title: 'Schedule & Sub-Tier Management',
+      image: '/images/process/step-03-coordination.jpg',
+      alt: 'Trade sub-contractor timeline management',
+    },
+    {
+      step: '05',
+      title: 'Material & Fixture Procurement',
+      image: '/images/process/step-02-planning.jpg',
+      alt: 'Commercial fixture and material planning',
     },
     {
       step: '06',
-      title: 'Problem solving throughout execution',
-      image: '/images/projects/modern-retail-showroom.png',
+      title: 'Turnkey Space Delivery',
+      image: '/images/process/step-05-delivery.jpg',
+      alt: 'Completed tenant improvement space handover',
+    },
+  ];
+
+  // 4 Core Capabilities
+  const tenantServices = [
+    {
+      title: 'Corporate Office Fit-Outs',
+      desc: 'High-performance office environments designed for productivity, technology integration, and brand identity.',
+      icon: Building2,
+    },
+    {
+      title: 'Retail & Showroom Build-Outs',
+      desc: 'Commercial retail spaces engineered for customer experience, durable finishes, and optimized layouts.',
+      icon: ShoppingBag,
+    },
+    {
+      title: 'Commercial Renovations',
+      desc: 'Interior space reconfigurations, MEP upgrades, and architectural enhancements for commercial properties.',
+      icon: Wrench,
+    },
+    {
+      title: 'Turnkey Tenant Deliveries',
+      desc: 'Comprehensive project management taking spaces from bare shell state to immediate operational readiness.',
+      icon: Sparkles,
     },
   ];
 
   return (
-    <div className="relative pb-20 text-black/90 bg-[#FAFAF8] min-h-screen">
+    <div className="relative pb-24 text-black/90 bg-transparent min-h-screen font-sans selection:bg-[#ED1C24] selection:text-white">
+      {/* Architectural Background Grid Texture */}
+      <div
+        className="absolute inset-0 opacity-[0.025] pointer-events-none select-none"
+        style={{
+          backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+        aria-hidden="true"
+      />
+
       {/* ========================================================
-          1. HERO SECTION: Full-Bleed Architectural Banner
+          1. HERO HEADER: Full-Bleed Architectural Banner
           ======================================================== */}
-      <section className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] flex flex-col justify-end pt-28 sm:pt-36 pb-16 sm:pb-20 border-b border-[#E6E6E3] bg-[#181818] mb-12 sm:mb-16">
+      <section className="relative w-full overflow-hidden min-h-[460px] sm:min-h-[520px] lg:min-h-[560px] flex flex-col justify-end pt-32 sm:pt-40 pb-16 sm:pb-20 bg-[#181818] mb-8 sm:mb-10 lg:mb-12">
         <img
-          src="/images/tenant-improvements.jpg"
-          alt="Tenant Improvement Transformation"
+          src="/images/tenant-improvements-hero-magnific.jpg"
+          alt="Tenant Improvement Fit-Outs"
           className="absolute inset-0 w-full h-full object-cover select-none brightness-95"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent" />
+        {/* Dual Directional Architectural Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full space-y-6">
-          <ServiceBreadcrumb currentTitle="Tenant Improvements" setActivePage={setActivePage} />
-
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <ScrollReveal direction="up" delay={0.05}>
-            <div className="max-w-4xl space-y-4 text-white">
-              <div className="flex items-center gap-2.5">
-                <span className="w-5 h-[2px] bg-[#C41E1E]" />
-                <span className="text-xs sm:text-sm font-sans font-semibold text-neutral-300 tracking-wider uppercase">
-                  Commercial Fit-Outs • Florida &amp; Texas
+            <div className="max-w-4xl space-y-5 text-white">
+              {/* Inline Hero Breadcrumb Trail */}
+              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-sans text-neutral-300 font-medium">
+                <button
+                  type="button"
+                  onClick={() => setActivePage && setActivePage('home')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Home
+                </button>
+                <span className="text-neutral-500 font-mono">/</span>
+                <button
+                  type="button"
+                  onClick={() => setActivePage && setActivePage('services')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Services
+                </button>
+                <span className="text-neutral-500 font-mono">/</span>
+                <span>
+                  Tenant Improvements
                 </span>
-              </div>
+              </nav>
 
-              <h1 className="text-3xl sm:text-4xl md:text-[40px] lg:text-[40px] font-display font-semibold tracking-tight text-white leading-[1.1]">
-                Transforming Spaces to Meet<br />
-                <span className="text-[#C41E1E]">New Business &amp; Operational Needs.</span>
+              {/* Main Headline - White 38px */}
+              <h1 className="text-2xl sm:text-3xl md:text-[38px] font-display font-semibold tracking-tight text-white leading-[44px] sm:leading-[44px] md:leading-[44px]">
+                <span className="block">Tailored Spaces.</span>
+                <span className="block mt-1 text-white">Seamless Execution.</span>
               </h1>
-
-              <p className="text-sm sm:text-base lg:text-lg text-neutral-200 font-sans leading-relaxed max-w-3xl pt-1">
-                Commercial spaces must adapt as business needs evolve. BNS Development provides tenant improvement and commercial build-out services that help owners, developers and businesses transform existing spaces into functional, well-coordinated environments.
-              </p>
-
-              <div className="pt-2 flex items-center gap-3 text-xs font-mono text-neutral-300">
-                <span className="w-2 h-2 rounded-full bg-[#C41E1E]" />
-                <span>Fast-Track Fit-Outs</span>
-                <span className="text-neutral-500">•</span>
-                <span>Corporate &amp; Retail Modernization</span>
-              </div>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16 sm:space-y-24">
+      {/* Main Page Body Container */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12 sm:space-y-16 lg:space-y-20">
 
         {/* ========================================================
-            2. WHAT ARE TENANT IMPROVEMENTS?
+            2. SECTION 2: PHILOSOPHY & STRATEGIC ADVANTAGE (2 Columns)
             ======================================================== */}
-        <section className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-white border border-[#E8E5E0] shadow-sm">
-          <div className="max-w-3xl space-y-6">
-            <SectionHeading
-              tag="Overview"
-              title="What Are"
-              highlight="Tenant Improvements?"
-            />
-            <div className="space-y-4 text-base sm:text-lg text-black/60 font-sans leading-relaxed">
-              <p>
-                Tenant improvements (also known as leasehold improvements or commercial build-outs) involve modifying, upgrading or customizing an existing interior commercial space to support the operational requirements of a tenant or owner.
-              </p>
-              <p>
-                Whether preparing a space for a new occupant, upgrading an existing facility or completing an interior fit-out, tenant improvement projects require careful planning, fast-track scheduling and effective communication.
-              </p>
-            </div>
-          </div>
-        </section>
+        <section className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
+            
+            {/* Left Column: Image Showcase */}
+            <ScrollReveal direction="left" delay={0.05} className="lg:col-span-6 h-full flex flex-col">
+              <div className="relative w-full h-full min-h-[400px] rounded-2xl overflow-hidden border border-black/[0.08] bg-[#181818] shadow-xs group flex-1">
+                <img
+                  src="/images/tenant-improvements.jpg"
+                  alt="Tenant Improvement Fit-Out Showcase"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out brightness-95"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+              </div>
+            </ScrollReveal>
 
-        {/* ========================================================
-            3. WHAT OUR SERVICES INCLUDE
-            ======================================================== */}
-        <section className="space-y-10">
-          <SectionHeading
-            tag="Core Offerings"
-            title="What Our Tenant Improvement"
-            highlight="Services Include"
-            description="Comprehensive interior modernization and turnkey build-out oversight."
-          />
+            {/* Right Column: Content & Key Pillars */}
+            <ScrollReveal direction="right" delay={0.1} className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.08] text-xs font-mono uppercase tracking-widest text-black/80 font-semibold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
+                <span>Strategic Leadership</span>
+              </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tenantServices.map((svc, idx) => {
-              const Icon = svc.icon;
-              return (
-                <div key={idx} className="p-8 rounded-3xl bg-white border border-[#E8E5E0] hover:border-[#C41E1E] shadow-sm hover:shadow-lg transition-all duration-300 space-y-4 flex flex-col justify-between group hover:-translate-y-1">
-                  <div className="space-y-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#F5F3F0] flex items-center justify-center text-[#C41E1E] group-hover:bg-[#C41E1E] group-hover:text-white transition-colors">
-                      <Icon className="w-6 h-6" />
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-black/90 leading-tight">
+                Tenant Improvement Excellence
+              </h2>
+
+              <TextRevealOnScroll
+                text="Commercial interiors demand tight coordination between building owners, tenant representatives, interior architects, and MEP trade contractors. We streamline pre-construction planning and field execution to guarantee fast-track project delivery."
+                className="text-sm sm:text-base text-black/70 font-sans leading-relaxed"
+                primaryColor="rgba(0, 0, 0, 0.9)"
+                mutedColor="rgba(0, 0, 0, 0.28)"
+              />
+
+              {/* 3 Pillar Feature Cards */}
+              <div className="pt-2 space-y-4">
+                <div className="p-5 sm:p-6 rounded-2xl bg-[#FBFBFA] border border-black/[0.08] hover:border-[#ED1C24]/60 transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl border border-[#ED1C24]/20 bg-[#ED1C24]/[0.06] text-[#ED1C24] flex items-center justify-center shrink-0 group-hover:bg-[#ED1C24] group-hover:border-[#ED1C24] group-hover:text-white transition-all duration-300">
+                      <Compass className="w-5 h-5" />
                     </div>
-                    <h4 className="text-xl font-semibold font-display text-black/85">
-                      {svc.title}
-                    </h4>
-                    <p className="text-sm text-black/60 font-sans leading-relaxed">
-                      {svc.desc}
-                    </p>
+                    <div className="space-y-1">
+                      <h3 className="text-base font-semibold font-display text-black/90 group-hover:text-[#ED1C24] transition-colors duration-300">
+                        Accelerated Project Schedules
+                      </h3>
+                      <p className="text-xs sm:text-sm text-black/60 font-sans leading-relaxed">
+                        Optimized critical path planning to reduce downtime and accelerate operational occupancy.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              );
-            })}
+
+                <div className="p-5 sm:p-6 rounded-2xl bg-[#FBFBFA] border border-black/[0.08] hover:border-[#ED1C24]/60 transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl border border-[#ED1C24]/20 bg-[#ED1C24]/[0.06] text-[#ED1C24] flex items-center justify-center shrink-0 group-hover:bg-[#ED1C24] group-hover:border-[#ED1C24] group-hover:text-white transition-all duration-300">
+                      <Users className="w-5 h-5" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="text-base font-semibold font-display text-black/90 group-hover:text-[#ED1C24] transition-colors duration-300">
+                        Building Management &amp; Landlord Alignment
+                      </h3>
+                      <p className="text-xs sm:text-sm text-black/60 font-sans leading-relaxed">
+                        Clear coordination with property managers, zoning authorities, and building engineers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-5 sm:p-6 rounded-2xl bg-[#FBFBFA] border border-black/[0.08] hover:border-[#ED1C24]/60 transition-all duration-300 group">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl border border-[#ED1C24]/20 bg-[#ED1C24]/[0.06] text-[#ED1C24] flex items-center justify-center shrink-0 group-hover:bg-[#ED1C24] group-hover:border-[#ED1C24] group-hover:text-white transition-all duration-300">
+                      <ShieldCheck className="w-5 h-5" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className="text-base font-semibold font-display text-black/90 group-hover:text-[#ED1C24] transition-colors duration-300">
+                        Interior QA/QC &amp; Finishes Inspection
+                      </h3>
+                      <p className="text-xs sm:text-sm text-black/60 font-sans leading-relaxed">
+                        Meticulous oversight of mechanical, electrical, plumbing, and architectural interior finishes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
           </div>
         </section>
 
         {/* ========================================================
-            4. WHY CHOOSE BNS DEVELOPMENT
+            3. SECTION 3: PICTORIAL BENEFITS GRID (6 Cards)
             ======================================================== */}
         <section className="space-y-10">
-          <SectionHeading
-            tag="Why BNS"
-            title="Why Choose BNS Development for"
-            highlight="Tenant Improvements"
-            description="Six core strengths that ensure your commercial space opens on schedule."
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {pictorialWhyChoose.map((item) => (
-              <div
-                key={item.step}
-                className="group relative rounded-3xl overflow-hidden border border-[#E8E5E0] bg-[#ECEAE5] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col justify-end aspect-[4/3] min-h-[240px]"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 select-none"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none" />
-
-                <div className="relative z-10 p-6 space-y-1 text-white">
-                  <span className="text-xs font-mono font-bold text-[#C41E1E]">
-                    {item.step}
-                  </span>
-                  <h3 className="text-base sm:text-lg font-display font-semibold text-white leading-snug">
-                    {item.title}
-                  </h3>
-                </div>
+          <ScrollReveal direction="up" delay={0.05}>
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.08] text-xs font-mono uppercase tracking-widest text-black/80 font-semibold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
+                <span>Value Delivery</span>
               </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-black/90">
+                Key Benefits of Professional Management
+              </h2>
+              <p className="text-sm sm:text-base text-black/60 font-sans max-w-none">
+                Structured leadership that protects your leasehold investment and transforms commercial interior spaces.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* 6 Pictorial Benefit Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {pictorialBenefits.map((item, idx) => (
+              <ScrollReveal key={item.step} direction="up" delay={0.05 * (idx + 1)}>
+                <div className="group relative rounded-2xl overflow-hidden border border-black/[0.08] bg-[#181818] aspect-[4/3] min-h-[260px] shadow-xs hover:shadow-lg transition-all duration-300 hover:border-[#ED1C24]/60 flex flex-col justify-end">
+                  {/* Background Image */}
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-[0.82] group-hover:brightness-95"
+                    loading="lazy"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
+
+                  {/* Content Container (Clean Title Only) */}
+                  <div className="relative z-10 p-6 sm:p-8">
+                    <h3 className="text-lg sm:text-xl font-display font-semibold text-white group-hover:text-[#ED1C24] transition-colors duration-300 leading-snug">
+                      {item.title}
+                    </h3>
+                  </div>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </section>
 
         {/* ========================================================
-            5. SPACES WE HELP TRANSFORM
+            4. SECTION 4: CAPABILITIES / OFFERINGS (4 Cards)
             ======================================================== */}
         <section className="space-y-10">
-          <SectionHeading
-            tag="Facility Types"
-            title="Spaces We"
-            highlight="Help Transform"
-            description="Versatile fit-out capabilities across all asset classes."
-          />
+          <ScrollReveal direction="up" delay={0.05}>
+            <div className="space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.08] text-xs font-mono uppercase tracking-widest text-black/80 font-semibold shadow-xs">
+                <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
+                <span>Tenant Expertise</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold tracking-tight text-black/90">
+                Tenant Improvement Capabilities
+              </h2>
+              <p className="text-sm sm:text-base text-black/60 font-sans max-w-none">
+                Comprehensive interior fit-out solutions tailored for office, retail, and commercial build-outs.
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: 'Office & Professional Spaces',
-                desc: 'Corporate offices, medical suites, technology headquarters and professional environments.',
-                icon: Building2,
-              },
-              {
-                title: 'Retail & Commercial Spaces',
-                desc: 'Boutiques, showrooms, retail storefronts and customer-facing commercial environments.',
-                icon: ShoppingBag,
-              },
-              {
-                title: 'Hospitality & Dining Spaces',
-                desc: 'Restaurants, cafes, lounges, hotel amenity spaces and customer hospitality environments.',
-                icon: Utensils,
-              },
-              {
-                title: 'Specialized Commercial Facilities',
-                desc: 'Fitness centers, educational facilities, creative studios and specialized business operations.',
-                icon: Layers,
-              },
-            ].map((p, idx) => {
-              const Icon = p.icon;
+            {tenantServices.map((svc, idx) => {
+              const Icon = svc.icon;
               return (
-                <div key={idx} className="p-7 rounded-3xl bg-white border border-[#E8E5E0] hover:border-[#C41E1E] shadow-sm hover:shadow-lg transition-all duration-300 space-y-4 flex flex-col justify-between group hover:-translate-y-1">
-                  <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#F5F3F0] flex items-center justify-center text-[#C41E1E]">
-                      <Icon className="w-5 h-5" />
+                <ScrollReveal key={idx} direction="up" delay={0.05 * (idx + 1)}>
+                  <div className="p-8 rounded-3xl bg-white border border-black/[0.08] hover:border-[#ED1C24]/60 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 h-full">
+                    <div className="space-y-4">
+                      <div className="w-12 h-12 rounded-xl border border-[#ED1C24]/20 bg-[#ED1C24]/[0.06] text-[#ED1C24] flex items-center justify-center group-hover:bg-[#ED1C24] group-hover:border-[#ED1C24] group-hover:text-white transition-all duration-300">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-xl font-semibold font-display text-black/90 group-hover:text-[#ED1C24] transition-colors duration-300">
+                        {svc.title}
+                      </h3>
+                      <p className="text-sm text-black/60 font-sans leading-relaxed">
+                        {svc.desc}
+                      </p>
                     </div>
-                    <h4 className="text-lg font-semibold font-display text-black/85">
-                      {p.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-black/60 font-sans leading-relaxed">
-                      {p.desc}
-                    </p>
                   </div>
-                </div>
+                </ScrollReveal>
               );
             })}
           </div>
         </section>
 
-        {/* CTA */}
-        <HouseCTA
-          onStartProject={() => setActivePage('contact')}
-          title="Have a Commercial Space to"
-          highlight="Transform?"
-          description="Whether you are planning a tenant improvement, interior build-out or commercial renovation, BNS Development can help guide the project from planning through completion."
-          buttonText="Start Your Buildout Inquiry"
+        {/* ========================================================
+            5. METHODOLOGY – TENANT IMPROVEMENT PIPELINE
+            Reference Editorial Stacking Layout & Interaction
+            ======================================================== */}
+        <ApproachEditorialList
+          steps={approachSteps}
+          category="Methodology"
+          headline="Tenant Improvement Pipeline"
+          description="A structured delivery lifecycle orchestrating commercial interior fit-outs, workplace transformations, and turnkey handovers with total schedule certainty."
         />
+
+        {/* ========================================================
+            6. CALL TO ACTION SECTION
+            ======================================================== */}
+        <ScrollReveal direction="up" delay={0.05}>
+          <HouseCTA setActivePage={setActivePage} />
+        </ScrollReveal>
+
       </div>
     </div>
   );

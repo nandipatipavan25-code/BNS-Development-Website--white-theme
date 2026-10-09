@@ -1,159 +1,57 @@
-export const projectsData = [
+export const allProjectsData = [
   {
-    id: "modern-retail-showroom",
-    title: "Modern Retail Showroom",
-    subtitle: "Luxury Automotive & High-End Retail Environment",
-    category: "Commercial / Retail",
+    id: "marriott-residents",
+    title: "Marriott Residents Tower",
+    subtitle: "18-Story Hospitality & Luxury Residential Tower",
+    category: "Hospitality & Residential",
     status: "Completed Projects",
-    location: "Austin, Texas",
-    value: "$18,500,000",
-    scope: "Architectural Millwork, Glass Curtain Wall, Custom Lighting & Modern Fireplace Array",
-    year: "2026",
-    sqft: "42,000 SF",
-    client: "Hill Country Luxury Brands",
-    image: "/images/projects/modern-retail-showroom.png",
+    location: "17000 Collins Ave, Sunny Isles Beach, FL 33160",
+    value: "Hospitality Shell",
+    scope: "Preconstruction planning (scheduling, site logistics, crane & hoist placement) & Construction Management.",
+    year: "Completed",
+    sqft: "18 Stories / 194 Keys",
+    client: "Marriott International",
+    image: "/images/projects/marriott-residents-cover.png",
     gallery: [
-      "/images/projects/modern-retail-showroom.png",
-      "/images/projects/executive-office-workspace.png"
+      "/images/projects/marriott-residents-cover.png",
+      "/images/projects/marriott-residents-image-1.png",
+      "/images/projects/marriott-residents-image-2.png"
     ],
-    overview: "An immaculate, design-forward commercial showroom delivering an elevated customer journey. Features custom acoustic wood fluting, floating hearth seating, panoramic architectural glazing, and integrated brand display arrays.",
+    overview: "18-story ground-up oceanfront hospitality tower containing 194 guestrooms, 211 structured parking spaces, ground-floor retail, signature restaurant, and resort amenities.",
     highlights: [
-      "Custom acoustic walnut ceiling and wall paneling systems",
-      "Expansive floor-to-ceiling thermal-break glazed facade",
-      "Architectural linear fireplace with monolithic stone hearth",
-      "Energy Star commercial building management and lighting controls"
+      "18-story ground-up oceanfront tower with 194 guestrooms",
+      "Three floors of structured parking containing 211 spaces alongside retail",
+      "Building shell construction management from groundbreaking to turnover",
+      "Site logistics planning: crane placement, hoist placement, and dewatering design"
     ],
-    featured: true,
+    featured: true
   },
   {
-    id: "contemporary-villa-interior",
-    title: "Contemporary Villa Interior",
-    subtitle: "Biophilic Architectural Luxury Living Space",
-    category: "Residential Development",
+    id: "district-36",
+    title: "District 36 (The Eve at the District)",
+    subtitle: "19-Story Multifamily, Retail & Parking Tower",
+    category: "Multifamily & Retail",
     status: "Completed Projects",
-    location: "Malibu, California",
-    value: "$24,000,000",
-    scope: "Multi-Level Indoor Atrium, Natural Stone Hardscapes & Cantilever Terraces",
-    year: "2026",
-    sqft: "14,500 SF",
-    client: "Private Client",
-    image: "/images/projects/contemporary-villa-interior.png",
+    location: "3635 NE 1st Street, Miami, FL 33127",
+    value: "$54M",
+    scope: "Construction Management & Pre-Construction Strategy for GT McDonald (GC) & MREG (Developer).",
+    year: "2015 – 2016",
+    sqft: "233,000 SF",
+    client: "MREG (Developer) / GT McDonald (GC)",
+    image: "/images/projects/district-36-cover.png",
     gallery: [
-      "/images/projects/contemporary-villa-interior.png",
-      "/images/projects/modern-luxury-residence.png"
+      "/images/projects/district-36-cover.png",
+      "/images/projects/district-36-image-1.png",
+      "/images/projects/district-36-image-2.png"
     ],
-    overview: "A coastal architectural sanctuary centered around a dramatic double-height light atrium with lush vertical botanical installations, handcrafted limestone floors, and custom curved furniture islands.",
+    overview: "19-story mixed-use tower featuring 195 residences, 63,000 SF of prime urban retail, and 3 levels of structured parking with state-of-the-art mechanical car lifts.",
     highlights: [
-      "Monumental two-story biophilic atrium with automated irrigation",
-      "Custom honed Jerusalem limestone flooring and floating stairs",
-      "Seamless indoor-to-patio transitional glass pocketing walls",
-      "Precision acoustic attenuation across all living wings"
+      "19-story tower with 195 luxury residences across 170,000 SF",
+      "63,000 SF of high-street retail & 3 parking levels with 89 car lifts",
+      "Resort-style deck amenities including pool, clubroom, and fitness center",
+      "Pre-construction strategy, Primavera P6 scheduling, and procurement risk mitigation"
     ],
-    featured: true,
-  },
-  {
-    id: "modern-luxury-residence",
-    title: "Modern Luxury Residence",
-    subtitle: "Panoramic Lakefront Architectural Sanctuary",
-    category: "Residential Development",
-    status: "Completed Projects",
-    location: "New York, USA",
-    value: "$16,800,000",
-    scope: "Structural Steel Cantilevers, Frameless Glass Envelopes & Custom Millwork",
-    year: "2026",
-    sqft: "11,200 SF",
-    client: "Private Family Office",
-    image: "/images/projects/modern-luxury-residence.png",
-    gallery: [
-      "/images/projects/modern-luxury-residence.png",
-      "/images/projects/luxury-penthouse-design.png"
-    ],
-    overview: "Perched gracefully above tranquil mountain waters, this ultra-luxury retreat frames breathtaking natural views through seamless floor-to-ceiling glass expanses, complemented by solid white oak timber and minimalist bespoke furnishings.",
-    highlights: [
-      "Floor-to-ceiling high-wind-load structural glass curtain walls",
-      "Custom wide-plank European white oak timber throughout",
-      "Concealed geothermal heating and smart radiant perimeter systems",
-      "Zero-threshold outdoor terrace with integrated stone plunge basin"
-    ],
-    featured: true,
-  },
-  {
-    id: "executive-office-workspace",
-    title: "Executive Office Workspace",
-    subtitle: "Class-A Corporate Headquarters & Executive Suites",
-    category: "Tenant Improvements",
-    status: "Completed Projects",
-    location: "Los Angeles, USA",
-    value: "$12,400,000",
-    scope: "High-Specification Corporate Fit-Out, Boardrooms & Acoustic Partitions",
-    year: "2026",
-    sqft: "38,000 SF",
-    client: "Venture Partners West",
-    image: "/images/projects/executive-office-workspace.png",
-    gallery: [
-      "/images/projects/executive-office-workspace.png",
-      "/images/projects/modern-retail-showroom.png"
-    ],
-    overview: "A sophisticated blend of polished industrial concrete, bespoke dark oak partitions, and acoustic glass conference pods crafted for executive collaboration and quiet focused work.",
-    highlights: [
-      "STC-55 rated acoustic double-glazed office partitions",
-      "Custom blackened steel framing and executive timber credenzas",
-      "Concealed high-speed optical data channels and Lutron lighting control",
-      "Private executive boardrooms with integrated video conferencing arrays"
-    ],
-    featured: true,
-  },
-  {
-    id: "boutique-cafe-interior",
-    title: "Boutique Café Interior",
-    subtitle: "Artisanal Hospitality & Dining Destination",
-    category: "Hospitality",
-    status: "Completed Projects",
-    location: "Chicago, USA",
-    value: "$4,800,000",
-    scope: "Complete Interior Transformation, Commercial Kitchen & Bar Installation",
-    year: "2026",
-    sqft: "6,500 SF",
-    client: "Artisan Culinary Group",
-    image: "/images/projects/boutique-cafe-interior.png",
-    gallery: [
-      "/images/projects/boutique-cafe-interior.png",
-      "/images/projects/contemporary-villa-interior.png"
-    ],
-    overview: "An intimate, tactile culinary sanctuary showcasing ribbed marble counter surfaces, rich forest-green banquette seating, ambient brass sconce arrays, and exposed historical brick accents.",
-    highlights: [
-      "Fluted Arabescato marble espresso bar and cocktail counter",
-      "Custom curved velvet and leather hospitality banquettes",
-      "Complete commercial grease-trap, ventilation, and MEP infrastructure",
-      "Warm dimmable architectural ambient and task lighting design"
-    ],
-    featured: true,
-  },
-  {
-    id: "luxury-penthouse-design",
-    title: "Luxury Penthouse Design",
-    subtitle: "Sky-High Coastal Residence & Private Terrace",
-    category: "Residential Development",
-    status: "Completed Projects",
-    location: "Miami, Florida",
-    value: "$21,500,000",
-    scope: "Full-Floor Interior Architecture, Structural Modifications & Rooftop Deck",
-    year: "2026",
-    sqft: "9,800 SF",
-    client: "International Private Collector",
-    image: "/images/projects/luxury-penthouse-design.png",
-    gallery: [
-      "/images/projects/luxury-penthouse-design.png",
-      "/images/projects/modern-luxury-residence.png"
-    ],
-    overview: "Elevated high above Biscayne Bay, this full-floor residence features continuous 360-degree skyline views, bookmatched Italian Calacatta marble wall slabs, a custom floating bronze staircase, and deep outdoor entertaining terraces.",
-    highlights: [
-      "Bookmatched Italian Calacatta marble slab installations",
-      "Floating structural bronze staircase with frameless glass balustrades",
-      "High-velocity coastal HVAC and acoustic vibration isolation",
-      "Integrated Crestron smart lighting, climate, and security automation"
-    ],
-    featured: true,
+    featured: true
   },
   {
     id: "monad-terrace",
@@ -180,34 +78,163 @@ export const projectsData = [
       "Comprehensive P6 baseline scheduling and vibration mitigation monitoring",
       "Seamless coordination between international design teams and municipal authorities"
     ],
-    featured: true,
+    featured: true
   },
   {
-    id: "district-36",
-    title: "District 36 (The Eve)",
-    subtitle: "195-Unit Mixed-Use Urban Community",
-    category: "Multifamily",
+    id: "modern-retail-showroom",
+    title: "Modern Retail Showroom",
+    subtitle: "Luxury Automotive & High-End Retail Environment",
+    category: "Commercial / Retail",
     status: "Completed Projects",
-    location: "Midtown Miami, Florida",
-    value: "$55,000,000",
-    scope: "Ground-up High-Rise Development Management & Turnkey Delivery",
-    year: "2018",
-    sqft: "320,000 SF",
-    client: "Midtown Development Holdings",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=85",
+    location: "Austin, Texas",
+    value: "$18,500,000",
+    scope: "Architectural Millwork, Glass Curtain Wall, Custom Lighting & Modern Fireplace Array",
+    year: "2026",
+    sqft: "42,000 SF",
+    client: "Hill Country Luxury Brands",
+    image: "/images/projects/modern-retail-showroom.png",
     gallery: [
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+      "/images/projects/modern-retail-showroom.png",
+      "/images/projects/executive-office-workspace.png"
     ],
-    overview: "A flagship mixed-use tower in Miami's vibrant Design District corridor, District 36 blends 195 contemporary luxury apartments with 60,000 square feet of street-level retail and class-A amenities. Delivered on an aggressive 24-month timeline through rigorous pre-development value engineering.",
+    overview: "An immaculate, design-forward commercial showroom delivering an elevated customer journey. Features custom acoustic wood fluting, floating hearth seating, panoramic architectural glazing, and integrated brand display arrays.",
     highlights: [
-      "195 luxury multi-family units and high-end commercial retail spaces",
-      "Integrated 5-level podium parking structure with architectural perforated mesh facade",
-      "Rooftop infinity pool deck and wellness club with panoramic skyline views",
-      "Zero lost-time safety incidents across 450,000 trade labor hours"
+      "Custom acoustic walnut ceiling and wall paneling systems",
+      "Expansive floor-to-ceiling thermal-break glazed facade",
+      "Architectural linear fireplace with monolithic stone hearth",
+      "Energy Star commercial building management and lighting controls"
     ],
-    featured: true,
+    featured: true
+  },
+  {
+    id: "contemporary-villa-interior",
+    title: "Contemporary Villa Interior",
+    subtitle: "Biophilic Architectural Luxury Living Space",
+    category: "Residential Development",
+    status: "Completed Projects",
+    location: "Malibu, California",
+    value: "$24,000,000",
+    scope: "Multi-Level Indoor Atrium, Natural Stone Hardscapes & Cantilever Terraces",
+    year: "2026",
+    sqft: "14,500 SF",
+    client: "Private Client",
+    image: "/images/projects/contemporary-villa-interior.png",
+    gallery: [
+      "/images/projects/contemporary-villa-interior.png",
+      "/images/projects/modern-luxury-residence.png"
+    ],
+    overview: "A coastal architectural sanctuary centered around a dramatic double-height light atrium with lush vertical botanical installations, handcrafted limestone floors, and custom curved furniture islands.",
+    highlights: [
+      "Monumental two-story biophilic atrium with automated irrigation",
+      "Custom honed Jerusalem limestone flooring and floating stairs",
+      "Seamless indoor-to-patio transitional glass pocketing walls",
+      "Precision acoustic attenuation across all living wings"
+    ],
+    featured: true
+  },
+  {
+    id: "modern-luxury-residence",
+    title: "Modern Luxury Residence",
+    subtitle: "Panoramic Lakefront Architectural Sanctuary",
+    category: "Residential Development",
+    status: "Completed Projects",
+    location: "New York, USA",
+    value: "$16,800,000",
+    scope: "Structural Steel Cantilevers, Frameless Glass Envelopes & Custom Millwork",
+    year: "2026",
+    sqft: "11,200 SF",
+    client: "Private Family Office",
+    image: "/images/projects/modern-luxury-residence.png",
+    gallery: [
+      "/images/projects/modern-luxury-residence.png",
+      "/images/projects/luxury-penthouse-design.png"
+    ],
+    overview: "Perched gracefully above tranquil mountain waters, this ultra-luxury retreat frames breathtaking natural views through seamless floor-to-ceiling glass expanses, complemented by solid white oak timber and minimalist bespoke furnishings.",
+    highlights: [
+      "Floor-to-ceiling high-wind-load structural glass curtain walls",
+      "Custom wide-plank European white oak timber throughout",
+      "Concealed geothermal heating and smart radiant perimeter systems",
+      "Zero-threshold outdoor terrace with integrated stone plunge basin"
+    ],
+    featured: true
+  },
+  {
+    id: "executive-office-workspace",
+    title: "Executive Office Workspace",
+    subtitle: "Class-A Corporate Headquarters & Executive Suites",
+    category: "Tenant Improvements",
+    status: "Completed Projects",
+    location: "Los Angeles, USA",
+    value: "$12,400,000",
+    scope: "High-Specification Corporate Fit-Out, Boardrooms & Acoustic Partitions",
+    year: "2026",
+    sqft: "38,000 SF",
+    client: "Venture Partners West",
+    image: "/images/projects/executive-office-workspace.png",
+    gallery: [
+      "/images/projects/executive-office-workspace.png",
+      "/images/projects/modern-retail-showroom.png"
+    ],
+    overview: "A sophisticated blend of polished industrial concrete, bespoke dark oak partitions, and acoustic glass conference pods crafted for executive collaboration and quiet focused work.",
+    highlights: [
+      "STC-55 rated acoustic double-glazed office partitions",
+      "Custom blackened steel framing and executive timber credenzas",
+      "Concealed high-speed optical data channels and Lutron lighting control",
+      "Private executive boardrooms with integrated video conferencing arrays"
+    ],
+    featured: true
+  },
+  {
+    id: "boutique-cafe-interior",
+    title: "Boutique Café Interior",
+    subtitle: "Artisanal Hospitality & Dining Destination",
+    category: "Hospitality",
+    status: "Completed Projects",
+    location: "Chicago, USA",
+    value: "$4,800,000",
+    scope: "Complete Interior Transformation, Commercial Kitchen & Bar Installation",
+    year: "2026",
+    sqft: "6,500 SF",
+    client: "Artisan Culinary Group",
+    image: "/images/projects/boutique-cafe-interior.png",
+    gallery: [
+      "/images/projects/boutique-cafe-interior.png",
+      "/images/projects/contemporary-villa-interior.png"
+    ],
+    overview: "An intimate, tactile culinary sanctuary showcasing ribbed marble counter surfaces, rich forest-green banquette seating, ambient brass sconce arrays, and exposed historical brick accents.",
+    highlights: [
+      "Fluted Arabescato marble espresso bar and cocktail counter",
+      "Custom curved velvet and leather hospitality banquettes",
+      "Complete commercial grease-trap, ventilation, and MEP infrastructure",
+      "Warm dimmable architectural ambient and task lighting design"
+    ],
+    featured: true
+  },
+  {
+    id: "luxury-penthouse-design",
+    title: "Luxury Penthouse Design",
+    subtitle: "Sky-High Coastal Residence & Private Terrace",
+    category: "Residential Development",
+    status: "Completed Projects",
+    location: "Miami, Florida",
+    value: "$21,500,000",
+    scope: "Full-Floor Interior Architecture, Structural Modifications & Rooftop Deck",
+    year: "2026",
+    sqft: "9,800 SF",
+    client: "International Private Collector",
+    image: "/images/projects/luxury-penthouse-design.png",
+    gallery: [
+      "/images/projects/luxury-penthouse-design.png",
+      "/images/projects/modern-luxury-residence.png"
+    ],
+    overview: "Elevated high above Biscayne Bay, this full-floor residence features continuous 360-degree skyline views, bookmatched Italian Calacatta marble wall slabs, a custom floating bronze staircase, and deep outdoor entertaining terraces.",
+    highlights: [
+      "Bookmatched Italian Calacatta marble slab installations",
+      "Floating structural bronze staircase with frameless glass balustrades",
+      "High-velocity coastal HVAC and acoustic vibration isolation",
+      "Integrated Crestron smart lighting, climate, and security automation"
+    ],
+    featured: true
   },
   {
     id: "braman-porsche-audi",
@@ -233,7 +260,7 @@ export const projectsData = [
       "Heavy mechanical infrastructure with subterranean exhaust extraction",
       "Strict brand architectural compliance inspected and approved by Porsche AG"
     ],
-    featured: true,
+    featured: true
   },
   {
     id: "miami-intl-airport-terminal-d",
@@ -259,7 +286,7 @@ export const projectsData = [
       "Federal TSA / Customs Border Protection sterile corridor integration",
       "Complex baggage conveyor and jet bridge systems commissioning"
     ],
-    featured: true,
+    featured: true
   },
   {
     id: "seminola-development",
@@ -285,7 +312,7 @@ export const projectsData = [
       "High-efficiency hurricane-rated impact glazing and reinforced concrete frames",
       "Active development with phased tenant occupancy schedule"
     ],
-    featured: false,
+    featured: false
   },
   {
     id: "regent-south-beach",
@@ -310,7 +337,7 @@ export const projectsData = [
       "87 custom-tailored luxury hotel suites with Italian marble finishes",
       "Full hospitality life safety and MEP systems overhaul"
     ],
-    featured: false,
+    featured: false
   },
   {
     id: "new-river-village",
@@ -335,7 +362,7 @@ export const projectsData = [
       "Full-height acoustic insulated glass envelope",
       "On-time delivery within budgeted owner contingency limits"
     ],
-    featured: false,
+    featured: false
   },
   {
     id: "east-village-market-swig",
@@ -360,7 +387,7 @@ export const projectsData = [
       "Complete civil infrastructure including storm retention and parking field",
       "Active development tracking 3 weeks ahead of scheduled delivery"
     ],
-    featured: true,
+    featured: true
   },
   {
     id: "kaskades-hotel",
@@ -384,7 +411,7 @@ export const projectsData = [
       "Smart-room automation infrastructure integrated into structural concrete",
       "Acoustic isolation between suites meeting five-star hotel standards"
     ],
-    featured: false,
+    featured: false
   },
   {
     id: "sawgrass-grand",
@@ -408,7 +435,7 @@ export const projectsData = [
       "Independent monthly P6 schedule audit and progress verification",
       "Stringent budget governance and contract dispute mitigation"
     ],
-    featured: false,
+    featured: false
   },
   {
     id: "katy-dink-dive",
@@ -432,7 +459,7 @@ export const projectsData = [
       "Advanced acoustic baffling and sports lighting engineered to tournament standards",
       "Pre-development phase complete; breaking ground Q3 2025"
     ],
-    featured: false,
+    featured: false
   },
   {
     id: "bns-luxury-enclave",
@@ -456,6 +483,8 @@ export const projectsData = [
       "Seamless indoor-outdoor motorized pocket glass sliding systems",
       "Integrated solar microgrid and smart home energy management"
     ],
-    featured: false,
+    featured: false
   }
 ];
+
+export const projectsData = allProjectsData;

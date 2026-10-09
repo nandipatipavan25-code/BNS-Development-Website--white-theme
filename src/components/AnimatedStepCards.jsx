@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import CardBeamBorder from './CardBeamBorder';
 
 /**
  * AnimatedStepCards Component
@@ -142,6 +143,7 @@ export default function AnimatedStepCards({ steps }) {
               >
                 {/* Framer Signal Card */}
                 <div className="group relative rounded-2xl bg-white border border-[#E6E6E3] hover:border-[#C41E1E] shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col">
+                  <CardBeamBorder borderRadius="16px" />
                   {/* Image Window (180px height matching Framer spec) */}
                   <div className="relative w-full h-[180px] overflow-hidden bg-[#ECECE9]">
                     <img

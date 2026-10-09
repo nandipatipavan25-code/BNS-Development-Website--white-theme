@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { workProjectsData } from '../data/workProjects';
 import ScrollReveal from './ScrollReveal';
+import CardBeamBorder from './CardBeamBorder';
 
 /* ─── Light Marquee Ticker ─── */
 function MarqueeTicker({ items, speed = 35, reverse = false }) {
@@ -119,8 +120,9 @@ export default function ProjectCarousel({ onSelectProject, onViewAll, bgClassNam
             <ScrollReveal key={`${project.id}-${idx}`} delay={idx * 0.08} direction="up" className="h-full">
               <div
                 onClick={() => onSelectProject && onSelectProject(project)}
-                className="w-full h-full bg-white rounded-[2.25rem] border border-[#E3E3DE] hover:border-[#C41E1E] overflow-hidden shadow-xs hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between group hover:-translate-y-1.5"
+                className="group relative overflow-hidden w-full h-full bg-white rounded-[2.25rem] border border-[#E3E3DE] hover:border-[#C41E1E] shadow-xs hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col justify-between hover:-translate-y-1.5"
               >
+                <CardBeamBorder borderRadius="36px" />
                 {/* Pure Photographic Image Frame + Micro Thumbnails */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#ECECE9]">
                   <img
@@ -181,13 +183,10 @@ export default function ProjectCarousel({ onSelectProject, onViewAll, bgClassNam
 
                   {/* View Details Action Row */}
                   <div className="pt-4 border-t border-[#E3E3DE] flex items-center justify-between">
-                    <span className="text-xs sm:text-sm font-sans font-semibold text-black/85 group-hover:text-[#C41E1E] transition-colors inline-flex items-center gap-1.5">
+                    <span className="text-xs sm:text-sm font-sans font-semibold text-black/85 group-hover:text-[#ED1C24] transition-colors inline-flex items-center gap-1.5">
                       Explore Case Study
-                      <ArrowRight className="w-3.5 h-3.5 text-[#C41E1E] transition-transform duration-300 group-hover:translate-x-1" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#ED1C24] transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
-                    <div className="w-9 h-9 rounded-full bg-[#141517] group-hover:bg-[#C41E1E] text-white flex items-center justify-center transition-colors shadow-xs shrink-0">
-                      <ArrowUpRight className="w-4 h-4" />
-                    </div>
                   </div>
                 </div>
               </div>

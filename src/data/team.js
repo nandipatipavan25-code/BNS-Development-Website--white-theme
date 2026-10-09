@@ -10,7 +10,6 @@ export const teamData = [
     email: "brad@bns-development.com",
     phone: "(786) 368-3009",
     linkedin: "https://www.linkedin.com/",
-    location: "Austin, TX & South Florida",
     bio: "Bradford brings 35+ years of industry experience across general contracting, development, project management, owner’s representation and operations. His experience includes ground-up, multifamily, hospitality, mixed-use, condominium and commercial projects.",
     credentials: [
       "Florida Certified General Contractor (CGC 1505391)",
@@ -30,7 +29,6 @@ export const teamData = [
     email: "aravind@bns-development.com",
     phone: "(945) 444-0083",
     linkedin: "https://www.linkedin.com/",
-    location: "Dallas / Austin, TX",
     bio: "Aravind brings entrepreneurial and leadership experience across technology, engineering, real estate and investment, adding a strategic perspective to BNS Development.",
     credentials: [
       "Entrepreneurial & Enterprise Leadership",
@@ -50,7 +48,6 @@ export const teamData = [
     email: "manizha@bns-development.com",
     phone: "(202) 427-2005",
     linkedin: "https://www.linkedin.com/",
-    location: "Austin, TX & South Florida",
     bio: "Manizha brings experience in commercial real estate, hospitality, land development, general contracting and business development, contributing to the growth of BNS Development.",
     credentials: [
       "Commercial Real Estate & Land Development",
@@ -70,7 +67,6 @@ export const teamData = [
     email: "knunnery@bns-development.com",
     phone: "(214) 537-3932",
     linkedin: "https://www.linkedin.com/",
-    location: "Austin, TX",
     bio: "Kylee spearheads Client Relations at BNS Development, ensuring transparent communication, responsiveness, and genuine partnership across all project stakeholders.",
     credentials: [
       "Strategic Owner & Stakeholder Communication",

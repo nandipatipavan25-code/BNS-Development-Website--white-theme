@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 // Architectural luxury ease curve
-const ARCH_EASE = [0.22, 1, 0.36, 1];
+const ARCH_EASE = [0.16, 1, 0.3, 1];
 
 export default function ScrollReveal({
   children,
@@ -19,8 +19,8 @@ export default function ScrollReveal({
     switch (direction) {
       case 'up': return { y: distance, x: 0 };
       case 'down': return { y: -distance, x: 0 };
-      case 'left': return { x: distance, y: 0 };
-      case 'right': return { x: -distance, y: 0 };
+      case 'left': return { x: -distance, y: 0 };  // Slide in from left to center
+      case 'right': return { x: distance, y: 0 };   // Slide in from right to center
       default: return { x: 0, y: 0 };
     }
   };

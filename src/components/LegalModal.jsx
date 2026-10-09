@@ -35,8 +35,10 @@ export default function LegalModal({ type, onClose }) {
           className="relative w-full max-w-2xl bg-white border border-[#E8E5E0] rounded-3xl p-6 sm:p-8 z-10 text-black/85 space-y-4 max-h-[85vh] overflow-y-auto shadow-2xl"
         >
           <div className="flex items-center justify-between pb-4 border-b border-[#E8E5E0]">
-            <div className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-[#C41E1E]" />
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl border border-[#ED1C24]/20 bg-[#ED1C24]/[0.06] text-[#ED1C24] flex items-center justify-center shrink-0">
+                <Shield className="w-5 h-5" />
+              </div>
               <h3 className="font-display font-semibold text-xl tracking-tight text-black/85">
                 {isPrivacy ? 'Privacy Policy' : 'Terms & Conditions'}
               </h3>

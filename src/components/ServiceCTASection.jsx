@@ -84,25 +84,27 @@ export default function ServiceCTASection({
           {/* Foreground Content with generous vertical height for natural cinematic proportion */}
           <div className="relative z-10 p-8 sm:p-14 lg:p-20 text-center flex flex-col items-center justify-center min-h-[440px] sm:min-h-[500px]">
             <div className="max-w-3xl mx-auto space-y-5">
-              <h2 className="text-2xl sm:text-3xl md:text-[40px] lg:text-[40px] section-heading-title font-display font-semibold tracking-tight leading-snug drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
+              <h2 className="text-2xl sm:text-3xl md:text-[36px] lg:text-[36px] section-heading-title font-display font-semibold tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px] drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
                 <span className="text-[#E6E6E6]" style={{ color: '#E6E6E6' }}>{titlePrefix}</span>{' '}
                 <span className="text-brand-red">{titleHighlight}</span>
               </h2>
 
               {description && (
-                <p className="text-sm sm:text-base lg:text-lg text-[#9CA3AF] font-sans leading-relaxed max-w-2xl mx-auto drop-shadow-md">
+                <p className="text-[16px] text-[#9CA3AF] font-sans leading-relaxed max-w-2xl mx-auto drop-shadow-md">
                   {description}
                 </p>
               )}
 
               <div className="pt-3 flex justify-center">
-                <EyeFollowButton
+                <div
                   onClick={onContact}
-                  size="md"
-                  icon="none"
+                  className="home-outline-btn group inline-flex items-center gap-3 px-8 py-4 rounded-full text-white text-xs sm:text-sm font-sans font-semibold select-none transition-colors duration-400 cursor-pointer"
                 >
-                  {buttonText}
-                </EyeFollowButton>
+                  <span className="home-outline-btn-fill" aria-hidden="true" />
+                  <span className="relative z-10 flex items-center gap-2.5">
+                    <span>{buttonText}</span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>

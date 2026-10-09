@@ -46,7 +46,7 @@ const PROJECT_TYPES = [
   },
   {
     num: '09',
-    name: 'Renovations',
+    name: 'Tenant Improvements',
     image: '/images/project-types/land-dev-renovations.png',
   },
   {

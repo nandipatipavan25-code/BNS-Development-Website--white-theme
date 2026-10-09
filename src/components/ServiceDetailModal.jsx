@@ -109,10 +109,12 @@ export default function ServiceDetailModal({ service, onClose, onContactClick })
                 {service.deliverables.map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#E8E5E0] text-sm text-black/85 font-sans shadow-sm"
+                    className="group flex items-start gap-3 p-3.5 rounded-xl bg-white border border-[#E8E5E0] hover:border-[#ED1C24]/50 text-sm text-black/85 font-sans shadow-sm transition-all"
                   >
-                    <CheckCircle className="w-4 h-4 text-[#C41E1E] shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <div className="w-7 h-7 rounded-lg border border-[#ED1C24]/20 bg-[#ED1C24]/[0.06] text-[#ED1C24] group-hover:bg-[#ED1C24] group-hover:border-[#ED1C24] group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-300">
+                      <CheckCircle className="w-4 h-4" />
+                    </div>
+                    <span className="pt-0.5">{item}</span>
                   </div>
                 ))}
               </div>

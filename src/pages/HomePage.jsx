@@ -4,6 +4,7 @@ import {
   ArrowRight, Compass, HardHat, Layers, Home, Building2, MapPin
 } from 'lucide-react';
 import ScrollReveal from '../components/ScrollReveal';
+import CardBeamBorder from '../components/CardBeamBorder';
 import { workProjectsData } from '../data/workProjects';
 import BeyondExperienceSection from '../components/BeyondExperienceSection';
 
@@ -257,7 +258,7 @@ function ScrollServiceCard({ service, index }) {
   return (
     <div
       ref={cardRef}
-      className="sticky mb-12 sm:mb-16 transition-all duration-300"
+      className="sticky mb-8 sm:mb-12 transition-all duration-300"
       style={{
         top: `calc(5.5rem + ${index * 1.25}rem)`,
         zIndex: index + 10,
@@ -268,16 +269,17 @@ function ScrollServiceCard({ service, index }) {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: false, amount: 0.15 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className={`w-full rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border transition-all duration-300 ${
+        className={`group relative w-full rounded-2xl sm:rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl border transition-all duration-300 ${
           isDark
             ? 'bg-[#111215] text-white border-white/10'
             : 'bg-white text-black/90 border-black/[0.08]'
         }`}
       >
+        <CardBeamBorder borderRadius="24px" />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Number, Title, Description, Dummy CTA */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-5 space-y-6">
             <div className="flex items-center gap-3">
               <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-[#ED1C24] uppercase">
                 {service.num}
@@ -297,7 +299,7 @@ function ScrollServiceCard({ service, index }) {
               {service.title}
             </h3>
 
-            <p className={`text-sm sm:text-base font-sans leading-relaxed ${
+            <p className={`text-base sm:text-[18px] font-sans leading-relaxed ${
               isDark ? 'text-white/75' : 'text-black/70'
             }`}>
               {service.description}
@@ -325,7 +327,7 @@ function ScrollServiceCard({ service, index }) {
           </div>
 
           {/* Right Column: Architectural Image Window */}
-          <div className="lg:col-span-6">
+          <div className="lg:col-span-7">
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3.2] sm:aspect-[4/3] w-full bg-black/10 group/img shadow-md">
               <img
                 src={service.image}
@@ -410,14 +412,10 @@ function TypewriterHeadline({
 // =========================================================================
 // MAIN HOME PAGE COMPONENT
 // =========================================================================
-export default function HomePage() {
-  const bgVideoRef = useRef(null);
+export default function HomePage({ setActivePage = () => {}, setSelectedProject = () => {} }) {
   const heroVideoRef = useRef(null);
 
   useEffect(() => {
-    if (bgVideoRef.current) {
-      bgVideoRef.current.play().catch(() => {});
-    }
     if (heroVideoRef.current) {
       heroVideoRef.current.play().catch(() => {});
     }
@@ -426,28 +424,12 @@ export default function HomePage() {
   return (
     <div className="w-full relative bg-[#F8F8FA] text-black/90 font-sans selection:bg-[#ED1C24] selection:text-white">
 
-      {/* Persistent Background Video for Home page (Sitting behind sections below Hero) */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden select-none" aria-hidden="true">
-        <video
-          ref={bgVideoRef}
-          src="/videos/bg-video.webm"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="w-full h-full object-cover select-none pointer-events-none opacity-45 brightness-95"
-        />
-        {/* Subtle BNS dark/grey overlay for high contrast & perfect text/UI readability */}
-        <div className="absolute inset-0 bg-[#0C0C0C]/40 pointer-events-none" />
-      </div>
-
       {/* ===================================================================
           1. HERO SECTION
           ## Built on Experience. Driven by Partnership.
           CTA: Let’s Develop What’s Next →
           =================================================================== */}
-      <section className="relative z-20 w-full min-h-[640px] sm:min-h-[720px] lg:min-h-[800px] flex items-center bg-[#111215] text-white pt-32 sm:pt-40 lg:pt-44 pb-20 sm:pb-28 overflow-hidden">
+      <section className="relative z-20 w-full min-h-[580px] sm:min-h-[660px] lg:min-h-[720px] flex items-center bg-[#111215] text-white pt-28 sm:pt-36 lg:pt-40 pb-14 sm:pb-20 lg:pb-24 overflow-hidden">
         {/* Full-Bleed Hero Background Video */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
           <video
@@ -532,47 +514,77 @@ export default function HomePage() {
       <div className="relative z-10 w-full">
 
         {/* ===================================================================
-            2. A BETTER WAY TO MOVE A PROJECT FORWARD
-            CTA: Meet BNS Development →
+            2. ABOUT US / DEVELOP WITH CLARITY SECTION
+            Clean minimal two-column layout with video on right
             =================================================================== */}
-        <section className="relative w-full py-24 sm:py-32 lg:py-40 bg-[#F8F8FA]/90 backdrop-blur-sm text-black/90 border-b border-black/[0.08] overflow-hidden">
-          <div
-            className="absolute inset-0 opacity-[0.03] pointer-events-none"
-            style={{
-              backgroundImage: 'radial-gradient(#000000 1px, transparent 1px)',
-              backgroundSize: '32px 32px',
-            }}
-            aria-hidden="true"
-          />
+        <section className="relative w-full py-16 sm:py-24 lg:py-28 bg-[#FAFAF8] text-black/90 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              
+              {/* Left Column: Content with Subtle Scroll Reveal */}
+              <div className="lg:col-span-6 space-y-6 sm:space-y-7">
+                <ScrollReveal direction="left" delay={0.05}>
+                  <div className="space-y-6">
+                    
+                    {/* Eyebrow Pill Tag */}
+                    <div className="flex items-center gap-3">
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.08] text-[11px] font-mono uppercase tracking-widest text-black/70 font-semibold shadow-xs">
+                        <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
+                        <span>DEVELOP WITH CLARITY</span>
+                      </div>
+                    </div>
 
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-center relative z-10">
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-black/[0.08] text-xs font-mono uppercase tracking-wider text-black/80 font-semibold shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
-              <span>Develop With Clarity</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[1.15]">
-              A Better Way to Move a Project Forward
-            </h2>
+                    {/* Display Headline - Solid Black Text (No Red Text) */}
+                    <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px] lg:leading-[44px]">
+                      A Better Way to <br />
+                      Move a Project Forward.
+                    </h2>
 
-            <div className="space-y-4 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg text-black/75 font-sans leading-relaxed">
-              <p>
-                The decisions made before development can shape the budget, timeline and outcome of a project. BNS Development gets involved early to help clients evaluate opportunities, plan effectively, coordinate requirements and move projects forward with clarity.
-              </p>
-            </div>
+                    {/* Body Text */}
+                    <p className="text-base sm:text-lg text-black/70 font-sans leading-relaxed max-w-xl">
+                      Early decisions define project success. BNS Development gets involved early to evaluate opportunities, protect budgets, and move builds forward with clarity.
+                    </p>
 
-            <div className="pt-4">
-              <div
-                className="home-outline-btn group inline-flex items-center gap-3 px-6 py-3.5 rounded-full text-xs sm:text-sm font-sans font-medium select-none transition-colors duration-400"
-              >
-                <span className="home-outline-btn-fill" aria-hidden="true" />
-                <span className="relative z-10 flex items-center gap-3 text-black/90 group-hover:text-white transition-colors duration-400">
-                  <span>Discover Our Process</span>
-                  <div className="w-6 h-6 rounded-full bg-black/[0.06] group-hover:bg-white/20 text-black/85 group-hover:text-white flex items-center justify-center transition-colors duration-400 border border-black/10 group-hover:border-transparent">
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    {/* Signature Home Outline Button */}
+                    <div className="pt-2">
+                      <div
+                        onClick={() => {
+                          if (setActivePage) setActivePage('services');
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="home-outline-btn group inline-flex items-center gap-3 px-6 py-3.5 rounded-full text-xs sm:text-sm font-sans font-medium select-none transition-colors duration-400 cursor-pointer"
+                      >
+                        <span className="home-outline-btn-fill" aria-hidden="true" />
+                        <span className="relative z-10 flex items-center gap-3 text-black/90 group-hover:text-white transition-colors duration-400">
+                          <span>Discover Our Process</span>
+                          <div className="w-6 h-6 rounded-full bg-black/[0.06] group-hover:bg-white/20 text-black/85 group-hover:text-white flex items-center justify-center transition-colors duration-400 border border-black/10 group-hover:border-transparent">
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+
                   </div>
-                </span>
+                </ScrollReveal>
               </div>
+
+              {/* Right Column: Clean Architectural Video Presentation */}
+              <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end">
+                <ScrollReveal direction="right" delay={0.15}>
+                  <div className="relative w-full max-w-lg lg:max-w-none rounded-3xl overflow-hidden flex items-center justify-center">
+                    <video
+                      src="/videos/about-us-section.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      className="w-full h-auto object-contain select-none mix-blend-multiply pointer-events-none transform transition-transform duration-700 hover:scale-[1.02]"
+                    />
+                  </div>
+                </ScrollReveal>
+              </div>
+
             </div>
           </div>
         </section>
@@ -585,16 +597,16 @@ export default function HomePage() {
             Residential Development
             Commercial Development
             =================================================================== */}
-        <section className="relative w-full py-20 sm:py-28 lg:py-36 bg-[#F8F8FA]/90 backdrop-blur-sm border-b border-black/[0.08]">
+        <section className="relative w-full pt-10 sm:pt-14 lg:pt-16 pb-14 sm:pb-20 lg:pb-24 bg-[#F8F8FA]/90 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 space-y-4">
+            <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 space-y-3.5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.06] text-xs font-mono uppercase tracking-wider text-black/70 font-semibold shadow-xs">
                 <span className="w-2 h-2 rounded-full bg-[#ED1C24]" />
                 <span>Services</span>
               </div>
               
-              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px]">
                 What We Do
               </h2>
             </div>
@@ -620,15 +632,15 @@ export default function HomePage() {
             Solve Problems — Identify challenges, evaluate options and keep decisions moving.
             Stay Accountable — Remain focused on the project from planning through completion.
             =================================================================== */}
-        <section className="relative w-full py-24 sm:py-32 lg:py-36 bg-[#FAFAF8] text-black/90 overflow-hidden border-t border-b border-black/[0.06]">
+        <section className="relative w-full py-14 sm:py-18 lg:py-22 bg-[#FAFAF8] text-black/90 overflow-hidden border-t border-b border-black/[0.06]">
           <div className="max-w-[1040px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-3xl mx-auto space-y-4 mb-16 sm:mb-24">
+            <div className="text-center max-w-3xl mx-auto space-y-4 mb-10 sm:mb-14">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-black/[0.08] text-xs font-mono uppercase tracking-wider text-black/80 font-semibold shadow-xs">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#ED1C24]" />
                 <span>Process &amp; Methodology</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px]">
                 Our Approach
               </h2>
             </div>
@@ -657,8 +669,8 @@ export default function HomePage() {
             mixed-use, condominiums, retail, aviation, renovations, land development
             and ground-up development.
             =================================================================== */}
-        <section className="relative w-full py-24 sm:py-32 lg:py-36 bg-[#FFFFFF]/90 backdrop-blur-sm border-t border-black/[0.08] overflow-hidden">
-          <div className="w-full space-y-12 sm:space-y-16 relative z-10">
+        <section className="relative w-full py-14 sm:py-18 lg:py-22 bg-[#FFFFFF]/90 backdrop-blur-sm border-t border-black/[0.08] overflow-hidden">
+          <div className="w-full space-y-8 sm:space-y-10 relative z-10">
             
             <div className="text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F3F4F6] border border-black/[0.06] text-xs font-mono uppercase tracking-wider text-black/70 font-semibold shadow-xs">
@@ -666,12 +678,17 @@ export default function HomePage() {
                 <span>Portfolio &amp; Sectors</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[1.15]">
+              <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-black/95 tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px]">
                 Experience Across Projects
               </h2>
 
-              <p className="text-base sm:text-lg text-black/70 font-sans leading-relaxed max-w-3xl mx-auto">
-                Our experience spans residential, multifamily, commercial, hospitality, mixed-use, condominiums, retail, aviation, renovations, land development and ground-up development.
+              <p className="text-base sm:text-lg text-black/70 font-sans leading-relaxed max-w-4xl mx-auto">
+                <span className="sm:block">
+                  Our experience spans residential, multifamily, commercial, hospitality, mixed-use, condominiums,
+                </span>
+                <span className="sm:block">
+                  retail, aviation, tenant improvements, land development and ground-up development.
+                </span>
               </p>
             </div>
 
@@ -681,8 +698,13 @@ export default function HomePage() {
                 {workProjectsData.map((project, idx) => (
                   <ScrollReveal key={project.id} delay={idx * 0.1} direction="up" className="h-full">
                     <div
-                      className="w-full h-full bg-white rounded-[2.25rem] border border-[#E3E3DE] hover:border-[#ED1C24] overflow-hidden shadow-xs hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group hover:-translate-y-1.5 select-none"
+                      onClick={() => {
+                        if (setSelectedProject) setSelectedProject(project);
+                        if (setActivePage) setActivePage('work-detail', `id=${project.id}`);
+                      }}
+                      className="w-full h-full bg-white rounded-[2.25rem] border border-[#E3E3DE] hover:border-black/20 overflow-hidden shadow-xs hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group relative hover:-translate-y-1.5 select-none cursor-pointer"
                     >
+                      <CardBeamBorder borderRadius="36px" />
                       {/* Photographic Cover Frame */}
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#ECECE9]">
                         <img
@@ -738,9 +760,9 @@ export default function HomePage() {
             BNS Development is ready to understand your goals and help move your project forward.
             CTA: Have a Project in Mind? →
             =================================================================== */}
-        <section className="relative w-full py-16 sm:py-24 bg-[#FFFFFF]/90 backdrop-blur-sm overflow-hidden">
+        <section className="relative w-full py-10 sm:py-14 lg:py-16 bg-transparent overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-[2.5rem] bg-[#0E0F12] text-white p-8 sm:p-14 lg:p-20 border border-white/10 shadow-2xl relative overflow-hidden text-center">
+            <div className="rounded-[2.5rem] bg-[#0E0F12] text-white p-8 sm:p-12 lg:p-16 border border-white/10 shadow-2xl relative overflow-hidden text-center">
               
               {/* Red and Black Architectural Building Background Image */}
               <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -767,7 +789,7 @@ export default function HomePage() {
                   <span>Get in Touch</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl md:text-[42px] lg:text-[42px] font-display font-semibold text-white tracking-tight leading-[1.15]">
+                <h2 className="text-2xl sm:text-3xl md:text-[36px] lg:text-[36px] font-display font-semibold text-white tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px]">
                   Ready to Talk About Your Project?
                 </h2>
 

@@ -116,7 +116,7 @@ export default function ProjectDetailModal({ project, onClose, onContactClick })
                 <span className="w-1.5 h-4 bg-brand-red rounded-full" />
                 Project Narrative & Engineering Scope
               </h3>
-              <p className="text-base sm:text-lg text-brand-offwhite/90 leading-relaxed font-sans">
+              <p className="text-base sm:text-lg text-brand-offwhite/90 leading-relaxed font-sans font-medium">
                 {project.overview}
               </p>
             </div>
@@ -132,10 +132,12 @@ export default function ProjectDetailModal({ project, onClose, onContactClick })
                   {project.highlights.map((h, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 p-4 rounded-xl bg-brand-black/40 border border-brand-border/60"
+                      className="group flex items-start gap-3 p-4 rounded-xl bg-brand-black/40 border border-brand-border/60 hover:border-[#ED1C24]/60 transition-all"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-brand-red shrink-0 mt-0.5" />
-                      <span className="text-sm text-brand-steel font-sans leading-snug">{h}</span>
+                      <div className="w-8 h-8 rounded-lg border border-[#ED1C24]/30 bg-[#ED1C24]/10 text-[#ED1C24] group-hover:bg-[#ED1C24] group-hover:border-[#ED1C24] group-hover:text-white flex items-center justify-center shrink-0 mt-0.5 transition-all duration-300">
+                        <CheckCircle2 className="w-4 h-4" />
+                      </div>
+                      <span className="text-sm text-brand-steel font-sans leading-snug pt-1">{h}</span>
                     </div>
                   ))}
                 </div>

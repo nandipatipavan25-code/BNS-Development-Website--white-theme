@@ -1,90 +1,98 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 export default function HouseCTA({
   onStartProject,
-  title = "Ready to Talk About",
-  highlight = "Your Project?",
+  setActivePage,
+  eyebrow = "Get in Touch",
+  title = "Ready to Talk About Your Project?",
+  highlight = "",
   description = "Whether you're evaluating an opportunity or preparing to begin development, BNS Development is ready to understand your goals and help move your project forward.",
   buttonText = "Have a Project in Mind?",
   image = "/images/cta-building-red-black.jpg",
   className = "",
 }) {
+  const handleStartProject = () => {
+    if (onStartProject) {
+      onStartProject();
+    } else if (setActivePage) {
+      setActivePage('contact');
+    }
+  };
   return (
-    <section className={`relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-20 sm:py-28 ${className}`}>
-      {/* Bildora-Style Dark Architectural Container */}
-      <div className="relative rounded-[2.5rem] sm:rounded-[3rem] overflow-hidden border border-[#262525] shadow-2xl bg-[#141517] min-h-[440px] flex items-center justify-center p-8 sm:p-14 lg:p-20 text-center group">
-        
-        {/* Background Architectural Image with Cinematic Depth */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src={image || "/images/cta-building-red-black.jpg"}
-            alt="BNS Development Architectural Landmark"
-            className="w-full h-full object-cover select-none transition-transform duration-1000 ease-out group-hover:scale-105 brightness-[0.55] contrast-110"
-            loading="lazy"
-          />
-          {/* Subtle Directional Overlay for Natural Architectural Light & Text Legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#141517] via-[#141517]/60 to-[#141517]/80" />
-        </div>
+    <section className={`relative w-full py-10 sm:py-14 lg:py-16 bg-transparent overflow-hidden ${className}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-[2.5rem] bg-[#0E0F12] text-white p-8 sm:p-14 lg:p-20 border border-white/10 shadow-2xl relative overflow-hidden text-center group">
+          
+          {/* Red and Black Architectural Building Background Image */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img
+              src={image || "/images/cta-building-red-black.jpg"}
+              alt="BNS Modern Red and Black Architecture Building"
+              className="w-full h-full object-cover object-center select-none scale-105 brightness-[0.52] sm:brightness-[0.58] contrast-[1.12] transition-transform duration-1000 ease-out group-hover:scale-110"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F12]/90 via-[#0E0F12]/40 to-[#0E0F12]/75" />
+            <div
+              className="absolute inset-0 opacity-[0.035]"
+              style={{
+                backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+                backgroundSize: '28px 28px',
+              }}
+              aria-hidden="true"
+            />
+          </div>
 
-        {/* Subtle Architectural Dot Grid Accent */}
-        <div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none z-0"
-          style={{
-            backgroundImage: `radial-gradient(#FFFFFF 1.5px, transparent 1.5px)`,
-            backgroundSize: '32px 32px',
-          }}
-          aria-hidden="true"
-        />
+          <div className="max-w-3xl mx-auto space-y-7 relative z-10">
+            <ScrollReveal direction="up" delay={0.05}>
+              <div className="space-y-5 flex flex-col items-center">
+                {/* Eyebrow Pill matching Home page */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A1C20]/80 backdrop-blur-md border border-white/10 text-xs font-mono uppercase tracking-wider text-white/80 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#ED1C24]" />
+                  <span>{eyebrow}</span>
+                </div>
 
-        {/* Foreground Content Centered (Bildora Style) */}
-        <div className="relative z-10 max-w-3xl mx-auto space-y-6 text-white flex flex-col items-center">
-          <ScrollReveal direction="up" delay={0.05}>
-            <div className="space-y-4 flex flex-col items-center">
-              {/* Eyebrow Pill */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white shadow-md">
-                <span className="w-2 h-2 rounded-full bg-[#C41E1E] animate-pulse" />
-                <span className="text-xs font-sans font-semibold tracking-wider text-neutral-200 uppercase">
-                  Project Initiation
-                </span>
-              </div>
+                {/* Headline in Playfair Display (Universal 36px CTA heading) */}
+                <h2 className="text-2xl sm:text-3xl md:text-[36px] lg:text-[36px] font-display font-semibold text-white tracking-tight leading-[44px] sm:leading-[44px] md:leading-[44px]">
+                  <span>{title}</span>
+                  {highlight && (
+                    <span className="text-[#ED1C24] ml-2">
+                      {highlight}
+                    </span>
+                  )}
+                </h2>
 
-              {/* Headline in Playfair Display */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-white leading-[1.08]">
-                <span>{title} </span>
-                {highlight && (
-                  <span className="text-[#C41E1E]">
-                    {highlight}
-                  </span>
+                {/* Description (Universal 16px subtext) */}
+                {description && (
+                  <p className="text-[16px] text-white/80 font-sans leading-relaxed max-w-2xl mx-auto">
+                    {description}
+                  </p>
                 )}
-              </h2>
+              </div>
+            </ScrollReveal>
 
-              {/* Description */}
-              {description && (
-                <p className="text-[16px] text-neutral-300 font-sans leading-relaxed max-w-2xl pt-1">
-                  {description}
-                </p>
-              )}
-            </div>
-          </ScrollReveal>
+            {/* Universal Action CTA Button matching Home page */}
+            <ScrollReveal direction="up" delay={0.12}>
+              <div className="pt-2 flex justify-center">
+                <div
+                  onClick={handleStartProject}
+                  className="home-outline-btn group inline-flex items-center gap-3 px-8 py-4 rounded-full text-white text-sm sm:text-base font-sans font-medium select-none cursor-pointer transition-colors duration-400"
+                >
+                  <span className="home-outline-btn-fill" aria-hidden="true" />
+                  <span className="relative z-10 flex items-center gap-3">
+                    <span>{buttonText}</span>
+                    <div className="w-7 h-7 rounded-full bg-white/10 group-hover:bg-white/20 text-white flex items-center justify-center transition-colors duration-400 border border-white/15">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
 
-          {/* Action CTA Button */}
-          <ScrollReveal direction="up" delay={0.12}>
-            <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
-              <button
-                onClick={onStartProject}
-                className="inline-flex items-center gap-3 px-9 py-4 rounded-full bg-gradient-to-r from-[#AA1E23] via-[#C52126] to-[#ED1C24] hover:brightness-110 text-white text-sm sm:text-base font-sans font-medium transition-all duration-300 shadow-xl shadow-[#ED1C24]/30 cursor-pointer group/btn hover:-translate-y-0.5 border border-white/10"
-              >
-                <span>{buttonText}</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
-              </button>
-            </div>
-          </ScrollReveal>
         </div>
       </div>
     </section>
   );
 }
-
